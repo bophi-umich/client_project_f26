@@ -1,0 +1,122 @@
+.skip {
+  position: absolute;
+  top: -65px;
+  z-index: 1;
+}    
+
+.skip:focus-within {
+  top: 60px;
+  background-color: white;
+}
+
+:focus {
+     border: 5px dashed navy;
+}
+
+nav li{
+  display:block;
+  padding: 20px;
+
+}
+
+nav a{
+  color: black;
+  font-weight: bold;
+  text-decoration: none; 
+  font-size: 18px;
+}
+
+nav a:hover, nav a:focus {
+  border: 2px solid navy;
+}
+
+header img {
+display:block;
+margin: auto;
+}
+
+h1 {
+  text-align: center;
+  font-size: 24px;
+  padding: 12px;
+  font-weight: bold;
+}
+
+img {
+  display: block;
+  margin: auto;
+  width: 90%;
+  height: auto;
+}
+
+article {
+  padding: 10px;
+  margin: 10px;
+}
+
+li {
+  padding: 10px;
+  margin: 10px;
+}
+
+section p, aside p {
+  padding: 10px;
+  margin: 10px;
+  font-size: 18px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 18px;
+  padding: 10px;
+  font-weight: bold;
+}
+h3 {
+  font-size: 18px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+article a {
+  size: 18px;
+}
+
+#main {
+  width:100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); 
+  gap:8px;
+}
+
+.overview {
+  grid-column: 1 / span 3;
+  overflow-wrap: break-word; 
+}
+
+article iframe {
+  margin: 0;
+}
+
+.usage, .stages, .programs, .about, .newsletter, .why, .goals, .questions, .process, .resources, .start, .value {
+  grid-column: 1 / span 3;
+  overflow-wrap: break-word; 
+}
+
+.newsletter {
+  padding: 10px;
+  margin-bottom: 40px;
+}
+
+footer {
+  text-align: center;
+  font-size: 14px;
+}
+
+.newsletter a {
+  margin: 10px;
+  padding: 10px;
+}
+
+.programs article:nth-child(2n), .stages article:nth-child(2n+1) {
+  background-color: #f2f2f2;
+}
