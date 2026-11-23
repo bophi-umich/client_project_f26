@@ -1,122 +1,470 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f4f6f9;
+  color: #1f2933;
+  line-height: 1.6;
+}
+
+/* Skip Link & Focus State */
 .skip {
   position: absolute;
-  top: -65px;
-  z-index: 1;
-}    
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 100;
+}
 
 .skip:focus-within {
-  top: 60px;
-  background-color: white;
+  position: fixed;
+  left: 16px;
+  top: 16px;
+  width: auto;
+  height: auto;
+  padding: 12px 18px;
+  background-color: #ffcb05;
+  color: #00274c;
+  font-weight: 700;
+  border-radius: 6px;
+  box-shadow: 0 6px 16px rgba(0, 39, 76, 0.12);
 }
 
-:focus {
-     border: 5px dashed navy;
+.skip a {
+  color: #00274c;
+  text-decoration: none;
 }
 
-nav li{
-  display:block;
-  padding: 20px;
-
+:focus-visible {
+  outline: 3px solid #2f65a7;
+  outline-offset: 3px;
 }
 
-nav a{
-  color: black;
-  font-weight: bold;
-  text-decoration: none; 
-  font-size: 18px;
-}
-
-nav a:hover, nav a:focus {
-  border: 2px solid navy;
+/* Header & Nav */
+header {
+  background-color: #ffffff;
+  border-bottom: 4px solid #ffcb05;
+  box-shadow: 0 2px 6px rgba(0, 39, 76, 0.08);
 }
 
 header img {
-display:block;
-margin: auto;
-}
-
-h1 {
-  text-align: center;
-  font-size: 24px;
-  padding: 12px;
-  font-weight: bold;
-}
-
-img {
   display: block;
-  margin: auto;
-  width: 90%;
+  margin: 0 auto;
+  padding: 16px 0;
+  width: auto;
+  max-width: 210px;
   height: auto;
 }
 
-article {
-  padding: 10px;
-  margin: 10px;
+nav {
+  background-color: #00274c;
+  padding: 6px 12px;
 }
 
-li {
-  padding: 10px;
-  margin: 10px;
-}
-
-section p, aside p {
-  padding: 10px;
-  margin: 10px;
-  font-size: 18px;
-}
-
-h2 {
-  text-align: center;
-  font-size: 18px;
-  padding: 10px;
-  font-weight: bold;
-}
-h3 {
-  font-size: 18px;
-  padding: 10px;
-  font-weight: bold;
-}
-
-article a {
-  size: 18px;
-}
-
-#main {
-  width:100%;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)); 
-  gap:8px;
-}
-
-.overview {
-  grid-column: 1 / span 3;
-  overflow-wrap: break-word; 
-}
-
-article iframe {
+nav ul {
   margin: 0;
+  padding: 0;
 }
 
-.usage, .stages, .programs, .about, .newsletter, .why, .goals, .questions, .process, .resources, .start, .value {
+nav li {
+  display: block;
+  margin: 4px 0;
+  padding: 0;
+  text-align: center;
+}
+
+nav a {
+  display: inline-block;
+  padding: 10px 16px;
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 6px;
+  border-bottom: 3px solid transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus {
+  background-color: #103b6b;
+  border-bottom-color: #ffcb05;
+  color: #ffcb05;
+}
+
+h1 {
+  background: linear-gradient(135deg, #00274c 0%, #103b6b 100%);
+  color: #ffffff;
+  text-align: center;
+  font-size: 28px;
+  line-height: 1.3;
+  padding: 28px 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Typography & Links */
+h2 {
+  color: #00274c;
+  text-align: left;
+  font-size: 22px;
+  line-height: 1.3;
+  padding: 8px 0 12px 0;
+  margin-bottom: 12px;
+  font-weight: 700;
+  border-bottom: 3px solid #ffcb05;
+}
+
+h3 {
+  color: #00274c;
+  font-size: 19px;
+  line-height: 1.35;
+  padding: 4px 0 8px 0;
+  font-weight: 700;
+}
+
+section p,
+aside p,
+article p {
+  padding: 6px 0;
+  margin: 6px 0;
+  font-size: 16px;
+  color: #1f2933;
+}
+
+main a {
+  color: #2f65a7;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+main a:hover,
+main a:focus {
+  color: #00274c;
+}
+
+/* Restore accessible list bullets/numbers inside main content */
+main ul {
+  list-style-type: disc;
+  padding-left: 24px;
+  margin: 12px 0;
+}
+
+main ol {
+  list-style-type: decimal;
+  padding-left: 24px;
+  margin: 12px 0;
+}
+
+main li {
+  padding: 4px 0;
+  margin: 6px 0;
+  font-size: 16px;
+}
+
+strong {
+  font-weight: 700;
+  color: #00274c;
+}
+
+/* Images & Video Players */
+main img,
+iframe {
+  display: block;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 800px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0, 39, 76, 0.12);
+}
+
+iframe {
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+/* Main Grid & Section Containers */
+#main {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  padding: 20px 16px 40px 16px;
+}
+
+.overview,
+.usage,
+.stages,
+.programs,
+.about,
+.newsletter,
+.why,
+.goals,
+.questions,
+.process,
+.resources,
+.start,
+.value {
   grid-column: 1 / span 3;
-  overflow-wrap: break-word; 
+  overflow-wrap: break-word;
+  background-color: #ffffff;
+  border: 1px solid #d8e0e8;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 2px 6px rgba(0, 39, 76, 0.08);
 }
 
+/* intro overview section on every page */
+.overview {
+  border-top: 5px solid #00274c;
+}
+
+.overview h2 {
+  text-align: center;
+  border-bottom: none;
+  font-size: 24px;
+}
+
+.overview > p {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 14px auto;
+  font-size: 17px;
+  color: #4b5563;
+}
+
+/* Article Cards & Action Buttons */
+article {
+  background-color: #f4f6f9;
+  border: 1px solid #d8e0e8;
+  border-top: 4px solid #00274c;
+  border-radius: 10px;
+  padding: 18px;
+  margin: 14px 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+article:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 39, 76, 0.12);
+}
+
+/* Alternate UM Maize top accent border on cards */
+.programs article:nth-child(2n),
+.stages article:nth-child(2n+1) {
+  background-color: #f9fbfd;
+  border-top-color: #ffcb05;
+}
+
+/* Turn standalone card links & CTA links into buttons */
+article > a,
+.newsletter a[href*="umsi.info"],
+.cta-button {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 18px;
+  background-color: #00274c;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+article > a:hover,
+article > a:focus,
+.newsletter a[href*="umsi.info"]:hover,
+.newsletter a[href*="umsi.info"]:focus,
+.cta-button:hover,
+.cta-button:focus {
+  background-color: #ffcb05;
+  color: #00274c;
+}
+
+.programs h3 a {
+  color: #00274c;
+  text-decoration: none;
+}
+
+.programs h3 a:hover,
+.programs h3 a:focus {
+  text-decoration: underline;
+}
+
+/* Newsletter Banner */
 .newsletter {
-  padding: 10px;
-  margin-bottom: 40px;
+  background-color: #eef3f8;
+  border: 2px solid #00274c;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
+.newsletter h2 {
+  text-align: center;
+  border-bottom: none;
+}
+
+/* Footer */
 footer {
+  background-color: #00274c;
+  color: #ffffff;
   text-align: center;
   font-size: 14px;
+  padding: 28px 16px;
+  border-top: 4px solid #ffcb05;
 }
 
-.newsletter a {
-  margin: 10px;
-  padding: 10px;
+footer p,
+footer address {
+  margin: 6px 0;
+  font-style: normal;
 }
 
-.programs article:nth-child(2n), .stages article:nth-child(2n+1) {
-  background-color: #f2f2f2;
+footer a {
+  color: #ffcb05;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+footer a:hover,
+footer a:focus {
+  color: #ffffff;
+}
+
+/* Tablet & Desktop View */
+@media screen and (min-width: 765px) {
+  nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  nav li {
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 34px;
+    padding: 36px 24px;
+  }
+
+  #main {
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 24px;
+    padding: 32px 24px 56px 24px;
+  }
+
+  /* Single-column sections */
+  .about,
+  .newsletter,
+  .goals,
+  .questions,
+  .process,
+  .resources,
+  .start {
+    grid-column: span 1;
+  }
+
+  /* Full-width narrative sections  */
+  .usage,
+  .why {
+    grid-column: 1 / -1;
+  }
+
+  /* Multi-card sections span full width */
+  .overview,
+  .stages,
+  .programs,
+  .value {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+  }
+
+  .overview > h2,
+  .overview > p,
+  .overview > img,
+  .overview > iframe,
+  .stages > h2,
+  .stages > p,
+  .programs > h2,
+  .programs > p,
+  .value > h3,
+  .value > p {
+    grid-column: 1 / -1;
+  }
+
+  .overview article,
+  .stages article,
+  .programs article,
+  .value article {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .stages article > a,
+  .programs article > a {
+    align-self: flex-start;
+  }
+}
+
+/* Back to main from the bottom button */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.back-to-main {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  background-color: #00274c;
+  color: #ffcb05;
+  border: 2px solid #ffcb05;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 44px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(0, 39, 76, 0.25);
+  z-index: 90;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.back-to-main.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-main:hover,
+.back-to-main:focus-visible {
+  background-color: #ffcb05;
+  color: #00274c;
+  border-color: #00274c;
 }
