@@ -59,12 +59,40 @@
         <!-- Content taken & modified from UMGPT with the prompt, "Write me a webpage of intro content to help meet the following requirements - this is for the home page": and then pasted in the client objectives & project requirements"
         UMGPT. (2026). UMGPT ( GPT-5.6 Sol September 7th version) [Large language model]. -->
     </main>
-    <footer>
-        <p>University of Michigan School of Information | <a href="https://www.si.umich.edu/programs/engaged-learning/about-engaged-learning-office">Engaged Learning Office </a></p>
-      <address>
-        <a href="mailto:umsi.engagement@umich.edu">umsi.engagement@umich.edu</a>
-      </address>
-      <p>&copy; 2026 Regents of the University of Michigan</p>
+
+<!-- Back to #main button (appears in the last quarter of the page) -->
+    <a href="#main" id="backToMain" class="back-to-main" aria-label="Back to top of main content" title="Back to main content">
+        &#8593;
+    </a>
+
+<footer>
+        <p>University of Michigan School of Information | <a href="https://www.si.umich.edu/programs/engaged-learning/about-engaged-learning-office">Engaged Learning Office</a></p>
+        <address>
+            <a href="mailto:umsi.engagement@umich.edu">umsi.engagement@umich.edu</a>
+        </address>
+        <p>&copy; <span id="currentYear"></span> Regents of the University of Michigan</p>
     </footer>
+
+    <!-- Dynamic copyright year script adapted from CodexWorld: "Get Current Year to Display Dynamic Year in Copyright using JavaScript" (https://www.codexworld.com/how-to/get-current-year-to-display-dynamic-year-in-copyright-using-javascript/) -->
+    <script>
+        document.getElementById("currentYear").innerHTML = new Date().getFullYear();
+    </script>
+    <script>
+        document.getElementById("currentYear").innerHTML = new Date().getFullYear();
+
+        const backToMainBtn = document.getElementById("backToMain");
+
+        window.addEventListener("scroll", function () {
+            const scrollPosition = window.scrollY + window.innerHeight;
+            const pageHeight = document.documentElement.scrollHeight;
+
+            // Show the arrow button once the user reaches the last quarter (75%) of the page
+            if (scrollPosition >= pageHeight * 0.75) {
+                backToMainBtn.classList.add("visible");
+            } else {
+                backToMainBtn.classList.remove("visible");
+            }
+        });
+    </script>
 </body>
 </html>
